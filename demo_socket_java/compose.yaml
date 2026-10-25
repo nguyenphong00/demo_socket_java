@@ -1,0 +1,33 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: socket_demo
+      MYSQL_USER: socket_user
+      MYSQL_PASSWORD: socket_pass
+      MYSQL_ROOT_PASSWORD: root_demo_pass
+    ports:
+      - "127.0.0.1:3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$$MYSQL_ROOT_PASSWORD --silent"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  server:
+    build: .
+    environment:
+      PORT: 9090
+      DB_URL: jdbc:mysql://db:3306/socket_demo?useSSL=false&allowPublicKeyRetrieval=true
+      DB_USER: socket_user
+      DB_PASSWORD: socket_pass
+      MAX_CLIENTS: 32
+    ports:
+      - "127.0.0.1:9090:9090"
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+volumes:
+  mysql_data:

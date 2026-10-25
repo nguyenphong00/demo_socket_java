@@ -1,0 +1,5 @@
+classpath:/private/tmp/socket-m2/com/fasterxml/jackson/core/jackson-databind/2.20.0/jackson-databind-2.20.0.jar	1688471:1756422039000
+classpath:/private/tmp/socket-m2/com/fasterxml/jackson/core/jackson-annotations/2.20/jackson-annotations-2.20.jar	79195:1756421461000
+classpath:/private/tmp/socket-m2/com/fasterxml/jackson/core/jackson-core/2.20.0/jackson-core-2.20.0.jar	593063:1756421750000
+classpath:/private/tmp/socket-m2/com/mysql/mysql-connector-j/9.5.0/mysql-connector-j-9.5.0.jar	2602851:1761518649000
+classpath:/private/tmp/socket-m2/com/google/protobuf/protobuf-java/4.31.1/protobuf-java-4.31.1.jar	1873183:1748459159000
